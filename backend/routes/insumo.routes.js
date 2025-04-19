@@ -1,9 +1,14 @@
-const express = require('express');
+import express from 'express';
+import {
+  listarInsumos,
+  criarInsumo,
+  verificarEstoqueMinimo
+} from '../controllers/InsumoController.js';
+
 const router = express.Router();
-const InsumoController = require('../controllers/InsumoController');
 
-router.get('/', InsumoController.listarInsumos);
-router.post('/', InsumoController.criarInsumo);
-router.get('/alertas', InsumoController.verificarEstoqueMinimo);
+router.get('/', listarInsumos);
+router.post('/', criarInsumo);
+router.get('/alertas', verificarEstoqueMinimo);
 
-module.exports = router;
+export default router;

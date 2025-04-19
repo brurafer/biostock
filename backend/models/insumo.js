@@ -1,24 +1,20 @@
-const { DataTypes } = require('sequelize');
-
-module.exports = (sequelize) => {
+export default (sequelize, DataTypes) => {
   const Insumo = sequelize.define('Insumo', {
     nome: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    unidade: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    descricao: {
+      type: DataTypes.STRING
     },
     quantidade_total: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
+      allowNull: false
     },
     nivel_minimo: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   });
 
   return Insumo;

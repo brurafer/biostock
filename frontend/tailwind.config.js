@@ -3,13 +3,15 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
-      fontFamily: {
-        inter: ['Inter', 'sans-serif']
-      },
       colors: {
         primary: '#BFD9D4',
+        secondary: '#63666A',
+        background: '#F4F4F4',
         dark: '#1A1A1A',
-        light: '#F4F4F4'
+        warning: '#FADDB1'
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif']
       }
     }
   },

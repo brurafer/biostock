@@ -1,9 +1,9 @@
-export default {
-    dialect: 'sqlite',
-    storage: './src/database/db.sqlite',
-    define: {
-      timestamps: true,
-      underscored: true
-    }
-  }
-  
+import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database.sqlite'
+});

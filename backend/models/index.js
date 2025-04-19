@@ -1,37 +1,27 @@
-const Sequelize = require('sequelize');
-const config = require('../database/config');
-const UserModel = require('./User');
-const RequestModel = require('./Request');
-const ProductModel = require('./Product');
-const StockModel = require('./Stock');
+import Sequelize from 'sequelize';
 
-// ⚠️ Use apenas ESSA versão da conexão, não as duas!
-const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-);
+import SetorModel from './Setor.js';
+import InsumoModel from './Insumo.js';
+import SolicitacaoModel from './Solicitacao.js';
+import NotificationModel from './Notification.js';
+import UserModel from './User.js';
 
-const User = UserModel(sequelize);
-const Request = RequestModel(sequelize);
-const Product = ProductModel(sequelize);
-const Stock = StockModel(sequelize);
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database.sqlite'
+});
 
-// Relações entre os modelos
-User.hasMany(Request);
-Request.belongsTo(User);
+const Setor = SetorModel(sequelize, Sequelize.DataTypes);
+const Insumo = InsumoModel(sequelize, Sequelize.DataTypes);
+const Solicitacao = SolicitacaoModel(sequelize, Sequelize.DataTypes);
+const Notification = NotificationModel(sequelize, Sequelize.DataTypes);
+const User = UserModel(sequelize, Sequelize.DataTypes);
 
-Product.hasMany(Stock);
-Stock.belongsTo(Product);
-
-Request.belongsTo(Product);
-Request.belongsTo(User);
-
-module.exports = {
+export {
   sequelize,
-  User,
-  Request,
-  Product,
-  Stock
+  Setor,
+  Insumo,
+  Solicitacao,
+  Notification,
+  User
 };

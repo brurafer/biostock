@@ -1,12 +1,12 @@
-const express = require('express');
+import express from 'express';
+import {
+  listarSolicitacoes,
+  criarSolicitacao
+} from '../controllers/SolicitacaoController.js';
+
 const router = express.Router();
-const SolicitacaoController = require('../controllers/SolicitacaoController');
 
-router.get('/', SolicitacaoController.listarSolicitacoes);
-router.post('/', SolicitacaoController.criarSolicitacao);
-router.put('/:id/aprovar', SolicitacaoController.aprovarSolicitacao);
-router.put('/:id/recusar', SolicitacaoController.recusarSolicitacao);
-router.put('/:id/liberar', SolicitacaoController.liberarSolicitacao);
-router.put('/:id/confirmar-retirada', SolicitacaoController.confirmarRetirada);
+router.get('/', listarSolicitacoes);
+router.post('/', criarSolicitacao);
 
-module.exports = router;
+export default router;

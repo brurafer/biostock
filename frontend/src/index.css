@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-[#F4F4F4] font-inter text-[#1A1A1A];
+@layer base {
+  body {
+    @apply font-inter bg-[#F4F4F4] text-[#1A1A1A];
+  }
 }

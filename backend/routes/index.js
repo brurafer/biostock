@@ -1,14 +1,19 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
 
-const userRoutes = require('./user.routes');
-const insumoRoutes = require('./insumo.routes');
-const solicitacaoRoutes = require('./solicitacao.routes');
-const authRoutes = require('./auth.routes'); // <- nova linha
+import loginRoutes from './login.routes.js';
+import userRoutes from './user.routes.js';
+import setorRoutes from './setor.routes.js';
+import insumoRoutes from './insumo.routes.js';
+import solicitacaoRoutes from './solicitacao.routes.js';
+import notificationRoutes from './notification.routes.js';
 
-router.use('/users', userRoutes);
+const router = Router();
+
+router.use('/login', loginRoutes);
+router.use('/usuarios', userRoutes);
+router.use('/setores', setorRoutes);
 router.use('/insumos', insumoRoutes);
 router.use('/solicitacoes', solicitacaoRoutes);
-router.use('/auth', authRoutes); // <- nova linha
+router.use('/notificacoes', notificationRoutes);
 
-module.exports = router;
+export default router;
